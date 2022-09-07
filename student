@@ -1,0 +1,51 @@
+package Example;
+import java.util.Arrays;
+import java.sql.SQLOutput;
+
+public class Student {
+String FirstName;
+String LastName;
+String group;
+double averageMark;
+
+double getScholarship(double averageMark){
+    double stipendia;
+    if(averageMark==5){
+        return stipendia=100.0;
+    }
+    else{
+        return stipendia=80.0;
+    }
+}
+}
+
+class Aspirant extends Student{
+String scienceWork;
+@Override
+    double getScholarship(double averageMark){
+        double stipendia;
+        if(averageMark==5){
+            return stipendia=200.0;
+        }
+        else{
+            return stipendia=180.0;
+        }
+    }
+}
+class Test{
+public static void main(String[] args) {
+        Student st=new Aspirant();
+        Student st1=new Student();
+        Aspirant as1=new Aspirant();
+        String[]arr1=new String[3];
+        arr1[0]="st";
+    arr1[1]="st1";
+    arr1[2]="as1";
+    System.out.println("Стипендия студента st при среднем балле 5,0 составит "+st.getScholarship(5.0)+" грв");
+    System.out.println("Стипендия студента st при среднем балле 4,0 составит "+st.getScholarship(4.0)+" грв");
+    System.out.println("Стипендия студента st1 при среднем балле 5,0 составит "+st1.getScholarship(5.0)+" грв");
+    System.out.println("Стипендия студента st1 при среднем балле 4,0 составит "+st1.getScholarship(4.0)+" грв");
+    System.out.println("Стипендия аспиранта as1 при среднем балле 5,0 составит "+as1.getScholarship(5.0)+" грв");
+    System.out.println("Стипендия аспиранта as1 при среднем балле 4,0 составит "+as1.getScholarship(4.0)+" грв");
+    }//как применить метод к каждому элементу массива более красивым и логичным способом я чтото не вспомнил
+}
