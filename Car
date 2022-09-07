@@ -1,0 +1,21 @@
+package Example;
+
+public class Car (String m, engine e) {
+    public class engine {
+        int durability;
+    }
+}
+    void startMove(int km){
+        if(km>=1000){
+            System.out.println();
+        }
+    }
+    void shoEngineInfo(){
+        System.out.println();
+    }
+}
+class Test1{
+    public static void main(String[] args) {
+        Car c=new Car();
+    }
+}
