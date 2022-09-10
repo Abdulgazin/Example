@@ -1,16 +1,23 @@
 package Example;
-import java.util.Arrays;
-import java.sql.SQLOutput;
+
+import Example2.Students;
+
+import java.util.ArrayList;
 
 public class Student {
 String FirstName;
 String LastName;
 String group;
 double averageMark;
-
-double getScholarship(double averageMark){
+public Student(String FirstName, String LastName, String group, double averageMark){
+    this.FirstName=FirstName;
+    this.LastName=LastName;
+    this.group=group;
+    this.averageMark=averageMark;
+}
+    double getScholarship(){
     double stipendia;
-    if(averageMark==5){
+    if(averageMark==5.0){
         return stipendia=100.0;
     }
     else{
@@ -18,13 +25,20 @@ double getScholarship(double averageMark){
     }
 }
 }
-
 class Aspirant extends Student{
 String scienceWork;
+    Aspirant(String Firstname, String LastName, String group, double averageMark){
+        super("Андрей", "Белов", "травматология", 4.0);//эту строку подсказала
+        // среда разработки но почему оно так я не понял немного
+        this.FirstName=Firstname;
+        this.LastName=LastName;
+        this.group=group;
+        this.averageMark=averageMark;
+    }
 @Override
-    double getScholarship(double averageMark){
+    double getScholarship(){
         double stipendia;
-        if(averageMark==5){
+        if(averageMark==5.0){
             return stipendia=200.0;
         }
         else{
@@ -32,20 +46,17 @@ String scienceWork;
         }
     }
 }
-class Test{
-public static void main(String[] args) {
-        Student st=new Aspirant();
-        Student st1=new Student();
-        Aspirant as1=new Aspirant();
-        String[]arr1=new String[3];
-        arr1[0]="st";
-    arr1[1]="st1";
-    arr1[2]="as1";
-    System.out.println("Стипендия студента st при среднем балле 5,0 составит "+st.getScholarship(5.0)+" грв");
-    System.out.println("Стипендия студента st при среднем балле 4,0 составит "+st.getScholarship(4.0)+" грв");
-    System.out.println("Стипендия студента st1 при среднем балле 5,0 составит "+st1.getScholarship(5.0)+" грв");
-    System.out.println("Стипендия студента st1 при среднем балле 4,0 составит "+st1.getScholarship(4.0)+" грв");
-    System.out.println("Стипендия аспиранта as1 при среднем балле 5,0 составит "+as1.getScholarship(5.0)+" грв");
-    System.out.println("Стипендия аспиранта as1 при среднем балле 4,0 составит "+as1.getScholarship(4.0)+" грв");
-    }//как применить метод к каждому элементу массива более красивым и логичным способом я чтото не вспомнил
+class Test {
+    public static void main(String[] args) {
+        Student st = new Aspirant("Сергей", "Наумов", "хиругия", 5.0);
+        Student st1 = new Student("Андрей", "Белов", "травматология", 4.5);
+        Aspirant as1 = new Aspirant("Егор", "Фомин", "стоматология", 4.7);
+        ArrayList<Student>arr1=new ArrayList<>();
+        arr1.add(st);
+        arr1.add(st1);
+        arr1.add(as1);
+        for (Student s : arr1) {
+            System.out.println(s.getScholarship());
+        }
+    }
 }
